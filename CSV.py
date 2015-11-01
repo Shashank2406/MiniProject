@@ -31,8 +31,6 @@ def fun2():
 	entry_1.grid(row=0,column=1)
 	entry_2.grid(row=1,column=1)
 	root.mainloop()
-def fun3():
-	print("Its Works")	
 
 def fun4():
 	root = Tk()
