@@ -1,4 +1,5 @@
 from Tkinter import *
+import csv
 def fun():
 	root = Tk() #Blank window
 	thelable = Label(root,text = "MiniProject Aplha 1")  #creates label window
@@ -43,7 +44,15 @@ def fun4():
 	button_2.pack()
 	frame.pack()
 	root.mainloop()
+def fun5():
+	f=open("a.csv")
+        csv_f=csv.reader(f)
+        for row in csv_f:
+	 if(row[0]=='VICKY'):
+	  print row
+        f.close()
 #fun()	
 #fun1()
 #fun2()
+#fun5()
 fun4()
