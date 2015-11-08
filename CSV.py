@@ -6,6 +6,22 @@ def show():
 	y=e2.get()
 	print("Top %s\nYear %s"%(x,y))
 	fun1()
+def show1():
+	root = Tk()
+	frame= Frame(root,width=240, height=60)
+	thelable = Label(root,text = "Under Construction")
+	button_1 = Button(root,text="Exit", command=root.destroy)
+	thelable.pack()
+	button_1.pack()
+	root.mainloop()	
+def show2():
+	root = Tk()
+	frame= Frame(root,width=240, height=60)
+	thelable = Label(root,text = "Under Construction")
+	button_1 = Button(root,text="Exit", command=root.destroy)
+	thelable.pack()
+	button_1.pack()
+	root.mainloop()	
 def fun5():
 	entr=Tk()
 	Label(entr,text='Enter Top').grid(row=0)
@@ -49,14 +65,16 @@ def fun1():
 def fun4():
 	root = Tk()
 	frame= Frame(root,width=240, height=60)
-	thelable = Label(root,text = "MiniProject Aplha Phase 3")  #creates label window
+	thelable = Label(root,text = "MiniProject BETA Phase 1")  #creates label window
 	button_1 = Button(root,text="Top Names", command=fun5)
-	#button_2 = Button(root,text="Values Present", command=show)
-	button_3 = Button(root,text="Exit", command=root.destroy)
+	button_2 = Button(root,text="Graph", command=show1)
+	button_3 = Button(root,text="About", command=show2)
+	button_4 = Button(root,text="Exit", command=root.destroy)
 	thelable.pack()
 	button_1.pack()
-	#button_2.pack()
+	button_2.pack()
 	button_3.pack()
+	button_4.pack()
 	frame.pack()
 	root.mainloop()
 #fun()	
