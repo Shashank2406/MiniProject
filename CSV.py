@@ -138,13 +138,15 @@ def bridge():
 		Both()
 	else:
 		top_1()		
-def show2():
+def about():
 	root = Tk()
-	frame= Frame(root,width=240, height=60)
-	thelable = Label(root,text = "Under Construction")
-	button_1 = Button(root,text="Exit", command=root.destroy)
+	frame= Frame(root,width=400, height=40)
+	thelable = Label(root,text = "MADE BY\nShashank Srivastava\nBTech IT V Semester\nRoll No 38")
+	button_4 = Button(root,text="Ok", command=root.destroy)
+	button_4.config( height = 2, width = 30 )
 	thelable.pack()
-	button_1.pack()
+	button_4.pack()
+	frame.pack()
 	root.mainloop()	
 def top():
 	entr=Tk()
@@ -201,7 +203,7 @@ def func():
 	thelable = Label(root,text = "MiniProject BETA Phase 3")  #creates label window
 	button_1 = Button(root,text="Top Names", command=top)
 	button_2 = Button(root,text="Graph", command=graph_1)
-	button_3 = Button(root,text="About", command=show2)
+	button_3 = Button(root,text="About", command=about)
 	button_4 = Button(root,text="Exit", command=root.destroy)
 	thelable.pack()
 	button_1.pack()
