@@ -21,7 +21,8 @@ def Graph():
 
 	f1 = open('data1.txt','w')
 	while(year <= 2013):
-		x=e3.get() + '_cy' + str(year) + '_top.csv'
+		str2 = e3.get()
+		x=str2.lower() + '_cy' + str(year) + '_top.csv'
 		f=open(x)
 		csv_f=csv.reader(f)
 		str1 = e1.get()
