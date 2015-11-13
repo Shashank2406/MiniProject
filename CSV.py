@@ -101,7 +101,8 @@ def fun5():
 	Button(entr,text='Show',command=fun1).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
 def fun1():
-	x=(e3.get()) + '_cy' + (e2.get()) + '_top.csv'
+	str1 = e3.get()
+	x=(str1.lower()) + '_cy' + (e2.get()) + '_top.csv'
 	print x 
 	f=open(x)
 	csv_f=csv.reader(f)
