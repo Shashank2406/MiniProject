@@ -45,7 +45,7 @@ def Graph():
 	plt.ylabel('Name Frequency')
 	plt.xlabel('Year')
 	plt.show()
-def fun_5():
+def graph_1():
 	entr=Tk()
 	Label(entr,text='Enter Name').grid(row=0)
 	Label(entr,text='Enter Year').grid(row=1)
@@ -62,19 +62,74 @@ def fun_5():
 	Button(entr,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
 	Button(entr,text='Show',command=Graph).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
-def show():
-	x=e1.get()
-	y=e2.get()
-	print("Top %s\nYear %s"%(x,y))
-	fun1()
-def show1():
+def Both():	
 	root = Tk()
-	frame= Frame(root,width=240, height=60)
-	thelable = Label(root,text = "Under Construction")
-	button_1 = Button(root,text="Exit", command=root.destroy)
-	thelable.pack()
-	button_1.pack()
-	root.mainloop()	
+	T = Text(root, width=40, height=60)
+	S = Scrollbar(root)
+	S.pack(side=RIGHT, fill=Y)
+	T.pack(side=LEFT, fill=Y)
+	S.config(command=T.yview)
+	T.config(yscrollcommand=S.set)
+	str1 = 'female'
+	str2 = e2.get()
+	x=(str1) + '_cy' + (str2) + '_top.csv'
+	print x 
+	f=open(x)
+	csv_f=csv.reader(f)
+	f1 = open('data1.txt','w')
+	s = '\n--FEMALE--\n'
+	f1.write(s)
+	x=e1.get()
+	for row in csv_f:
+		y=row[2]
+	 	y=y.replace("=","")
+	 	if(y == "Position"):
+	 		print "hello"
+		else:
+			if(int (y) <= int (x)):
+				s = str(row[2])
+				s = s.replace("=","")	
+				f1.write(s)
+				f1.write('  ')
+				s = str(row[1])	
+				f1.write(s)
+				f1.write('  ')
+				s = str(row[0])	
+				f1.write(s)
+				f1.write('\n')	
+	#f1.close()
+	s = '\n--MALE--\n'	
+	f1.write(s)
+	str1 = 'male'
+	global str2
+	str2 = e2.get()
+	x=(str1) + '_cy' + (str2) + '_top.csv'
+	print x 
+	f=open(x)
+	csv_f=csv.reader(f)
+	#f1 = open('data1.txt','w')
+	x=e1.get()
+	for row in csv_f:
+		y=row[2]
+	 	y=y.replace("=","")
+	 	if(y == "Position"):
+	 		print "hello"
+		else:
+			if(int (y) <= int (x)):
+				s = str(row[2])
+				s = s.replace("=","")	
+				f1.write(s)
+				f1.write('  ')
+				s = str(row[1])	
+				f1.write(s)
+				f1.write('  ')
+				s = str(row[0])	
+				f1.write(s)
+				f1.write('\n')	
+	f1.close()	
+	f2 = open("data1.txt","r")
+	T.insert(END, f2.read())
+	root.mainloop()			
 def show2():
 	root = Tk()
 	frame= Frame(root,width=240, height=60)
@@ -83,7 +138,7 @@ def show2():
 	thelable.pack()
 	button_1.pack()
 	root.mainloop()	
-def fun5():
+def top():
 	entr=Tk()
 	Label(entr,text='Enter Top').grid(row=0)
 	Label(entr,text='Enter Year').grid(row=1)
@@ -97,10 +152,15 @@ def fun5():
 	e1.grid(row=0,column=1)
 	e2.grid(row=1,column=1)
 	e3.grid(row=2,column=1)
-	Button(entr,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
-	Button(entr,text='Show',command=fun1).grid(row=3,column=1,sticky=W,pady=4)
+	str1 = e3.get()
+	if(str1.lower() == 'both'):
+		Button(entr,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
+		Button(entr,text='Show',command=Both).grid(row=3,column=1,sticky=W,pady=4)
+	else:
+		Button(entr,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
+		Button(entr,text='Show',command=top_1).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
-def fun1():
+def top_1():
 	str1 = e3.get()
 	x=(str1.lower()) + '_cy' + (e2.get()) + '_top.csv'
 	print x 
@@ -121,15 +181,23 @@ def fun1():
 	 		print "hello"
 		else:
 			if(int (y) <= int (x)):	
-				T.insert(END,row)
-				T.insert(END,'\n')		
+				s = str(row[2])
+				s = s.replace("=","")	
+				T.insert(END,s)
+				T.insert(END,'  ')	
+				s = str(row[1])	
+				T.insert(END,s)
+				T.insert(END,'  ')
+				s = str(row[0])	
+				T.insert(END,s)
+				T.insert(END,'\n')			
 	root.mainloop()	
-def fun4():
+def func():
 	root = Tk()
 	frame= Frame(root,width=240, height=60)
-	thelable = Label(root,text = "MiniProject BETA Phase 1")  #creates label window
-	button_1 = Button(root,text="Top Names", command=fun5)
-	button_2 = Button(root,text="Graph", command=fun_5)
+	thelable = Label(root,text = "MiniProject BETA Phase 3")  #creates label window
+	button_1 = Button(root,text="Top Names", command=top)
+	button_2 = Button(root,text="Graph", command=graph_1)
 	button_3 = Button(root,text="About", command=show2)
 	button_4 = Button(root,text="Exit", command=root.destroy)
 	thelable.pack()
@@ -139,7 +207,5 @@ def fun4():
 	button_4.pack()
 	frame.pack()
 	root.mainloop()
-#fun()	
-#fun1()
-#fun2()
-fun4()
+
+func()
