@@ -84,7 +84,7 @@ def Both():
 		y=row[2]
 	 	y=y.replace("=","")
 	 	if(y == "Position"):
-	 		print "hello"
+	 		print "Shashank"
 		else:
 			if(int (y) <= int (x)):
 				s = str(row[2])
@@ -113,7 +113,7 @@ def Both():
 		y=row[2]
 	 	y=y.replace("=","")
 	 	if(y == "Position"):
-	 		print "hello"
+	 		print "Shashank"
 		else:
 			if(int (y) <= int (x)):
 				s = str(row[2])
@@ -129,7 +129,15 @@ def Both():
 	f1.close()	
 	f2 = open("data1.txt","r")
 	T.insert(END, f2.read())
-	root.mainloop()			
+	root.mainloop()	
+def bridge():
+	str1 = e3.get()
+	str1 = str1.lower()
+	str2 = 'both'
+	if(str1 == str2):	
+		Both()
+	else:
+		top_1()		
 def show2():
 	root = Tk()
 	frame= Frame(root,width=240, height=60)
@@ -152,13 +160,8 @@ def top():
 	e1.grid(row=0,column=1)
 	e2.grid(row=1,column=1)
 	e3.grid(row=2,column=1)
-	str1 = e3.get()
-	if(str1.lower() == 'both'):
-		Button(entr,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
-		Button(entr,text='Show',command=Both).grid(row=3,column=1,sticky=W,pady=4)
-	else:
-		Button(entr,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
-		Button(entr,text='Show',command=top_1).grid(row=3,column=1,sticky=W,pady=4)
+	Button(entr,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
+	Button(entr,text='Show',command=bridge).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
 def top_1():
 	str1 = e3.get()
@@ -178,7 +181,7 @@ def top_1():
 	 	y=row[2]
 	 	y=y.replace("=","")
 	 	if(y == "Position"):
-	 		print "hello"
+	 		print "Shashank"
 		else:
 			if(int (y) <= int (x)):	
 				s = str(row[2])
