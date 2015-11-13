@@ -24,9 +24,10 @@ def Graph():
 		x=e3.get() + '_cy' + str(year) + '_top.csv'
 		f=open(x)
 		csv_f=csv.reader(f)
+		str1 = e1.get()
 		header=next(csv_f)
 		for row in csv_f:
-			if(row[0] == e1.get()):
+			if(row[0] == str1.upper()):
 				y= row[1]	
 				break
 		s = str(y)
