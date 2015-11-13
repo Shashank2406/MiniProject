@@ -50,6 +50,7 @@ def graph_1():
 	Label(entr,text='Enter Name').grid(row=0)
 	Label(entr,text='Enter Year').grid(row=1)
 	Label(entr,text='Male/Female').grid(row=2)
+	entr.wm_title("Graph")
 	global e1
 	e1=Entry(entr)
 	global e2
@@ -64,6 +65,7 @@ def graph_1():
 	entr.mainloop()
 def Both():	
 	root = Tk()
+	root.wm_title("Top")
 	T = Text(root, width=40, height=60)
 	S = Scrollbar(root)
 	S.pack(side=RIGHT, fill=Y)
@@ -140,6 +142,7 @@ def bridge():
 		top_1()		
 def about():
 	root = Tk()
+	root.wm_title("About")
 	frame= Frame(root,width=400, height=40)
 	thelable = Label(root,text = "MADE BY\nShashank Srivastava\nBTech IT V Semester\nRoll No 38")
 	button_4 = Button(root,text="Ok", command=root.destroy)
@@ -150,6 +153,7 @@ def about():
 	root.mainloop()	
 def top():
 	entr=Tk()
+	entr.wm_title("Top")
 	Label(entr,text='Enter Top').grid(row=0)
 	Label(entr,text='Enter Year').grid(row=1)
 	Label(entr,text='Male/Female/Both').grid(row=2)
@@ -195,11 +199,13 @@ def top_1():
 				T.insert(END,'  ')
 				s = str(row[0])	
 				T.insert(END,s)
-				T.insert(END,'\n')			
+				T.insert(END,'\n')
+	root.wm_title("Top")			
 	root.mainloop()	
 def func():
 	root = Tk()
 	frame= Frame(root,width=240, height=60)
+	root.wm_title("MiniProject")
 	thelable = Label(root,text = "MiniProject BETA Phase 3")  #creates label window
 	button_1 = Button(root,text="Top Names", command=top)
 	button_2 = Button(root,text="Graph", command=graph_1)
