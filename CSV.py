@@ -3,7 +3,7 @@ from Tkinter import *
 import csv
 import numpy as np
 
-def Graph():
+def Graph():							#Graph Plotter
 	f = open('data.txt', 'w')
 	i = 0
 	year = e2.get()
@@ -45,7 +45,7 @@ def Graph():
 	plt.ylabel('Name Frequency')
 	plt.xlabel('Year')
 	plt.show()
-def graph_1():
+def graph_1():							#Graph Input
 	entr=Tk()
 	Label(entr,text='Enter Name').grid(row=0)
 	Label(entr,text='Enter Year').grid(row=1)
@@ -63,7 +63,7 @@ def graph_1():
 	Button(entr,height=2,width=20,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
 	Button(entr,height=2,width=20,text='Show',command=Graph).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
-def Both():	
+def Both():							#both case
 	root = Tk()
 	root.wm_title("Top")
 	T = Text(root, width=40, height=60)
@@ -132,7 +132,7 @@ def Both():
 	f2 = open("data1.txt","r")
 	T.insert(END, f2.read())
 	root.mainloop()	
-def bridge():
+def bridge():						#both helper
 	str1 = e3.get()
 	str1 = str1.lower()
 	str2 = 'both'
@@ -140,7 +140,7 @@ def bridge():
 		Both()
 	else:
 		top_1()		
-def about():
+def about():						#about function
 	root = Tk()
 	root.wm_title("About")
 	frame= Frame(root,width=400, height=40)
@@ -151,7 +151,7 @@ def about():
 	button_4.pack()
 	frame.pack()
 	root.mainloop()	
-def top():
+def top():						#top function
 	entr=Tk()
 	entr.wm_title("Top")
 	Label(entr,text='Enter Top').grid(row=0)
@@ -169,7 +169,7 @@ def top():
 	Button(entr,height=2,width=20,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
 	Button(entr,height=2,width=20,text='Show',command=bridge).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
-def top_1():
+def top_1():						#top value input
 	str1 = e3.get()
 	x=(str1.lower()) + '_cy' + (e2.get()) + '_top.csv'
 	print x 
@@ -202,7 +202,37 @@ def top_1():
 				T.insert(END,'\n')
 	root.wm_title("Top")			
 	root.mainloop()	
-def func():
+'''def ps():							#partial Search Beta
+	str1 = e3.get()
+	x=(str1.lower()) + '_cy' + (e2.get()) + '_top.csv'
+	print x 
+	f=open(x)
+	csv_f=csv.reader(f)
+	root = Tk()
+	T = Text(root, width=40, height=60)
+	S = Scrollbar(root)
+	S.pack(side=RIGHT, fill=Y)
+	T.pack(side=LEFT, fill=Y)
+	S.config(command=T.yview)
+	T.config(yscrollcommand=S.set)
+	x=e1.get()
+	for row in csv_f:
+	 	y=row[2]
+	 	y=y.replace("=","")
+	 	if(y == "Position"):
+	 		print "Shashank"
+		else:
+			s = str(row[0])
+			print s
+			s1 = str(e1.get())
+			print s1
+			if (s.find(s1.upper())!=-1):	
+				s = str(row[0])	
+				T.insert(END,s)
+				T.insert(END,'\n')	
+	root.wm_title("Top")				
+	root.mainloop()'''	
+def func():						#main window
 	root = Tk()
 	frame= Frame(root,width=240, height=60)
 	root.wm_title("MiniProject")
