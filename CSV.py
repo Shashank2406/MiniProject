@@ -231,7 +231,24 @@ def top_1():						#top value input
 				T.insert(END,s)
 				T.insert(END,'\n')	
 	root.wm_title("Top")				
-	root.mainloop()'''	
+	root.mainloop()'''
+'''def ps_1():
+	entr=Tk()
+	Label(entr,text='Enter Name').grid(row=0)
+	Label(entr,text='Enter Year').grid(row=1)
+	Label(entr,text='Male/Female').grid(row=2)
+	global e1
+	e1=Entry(entr)
+	global e2
+	e2=Entry(entr)
+	global e3
+	e3=Entry(entr)
+	e1.grid(row=0,column=1)
+	e2.grid(row=1,column=1)
+	e3.grid(row=2,column=1)
+	Button(entr,height=2,width=20,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
+	Button(entr,height=2,width=20,text='Show',command=ps).grid(row=3,column=1,sticky=W,pady=4)
+	entr.mainloop()	'''
 def func():						#main window
 	root = Tk()
 	frame= Frame(root,width=240, height=60)
