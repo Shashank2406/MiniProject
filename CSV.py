@@ -223,9 +223,7 @@ def top_1():						#top value input
 	 		print "Shashank"
 		else:
 			s = str(row[0])
-			print s
 			s1 = str(e1.get())
-			print s1
 			if (s.find(s1.upper())!=-1):	
 				s = str(row[0])	
 				T.insert(END,s)
