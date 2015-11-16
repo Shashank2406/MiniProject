@@ -345,7 +345,6 @@ def mini():						#main window
 	global OPTIONS
 	OPTIONS=[70]
 	OPTIONS[0] = '1945'
-	global OPTIONS
 	for i in range(1946,2014):
 		OPTIONS.append(i)
 	frame= Frame(root,width=240, height=30)
