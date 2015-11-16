@@ -48,7 +48,7 @@ def Graph():							#Graph Plotter
 def Graphps():
 	f = open('data.dat', 'w')
 	i = 0
-	year = r2.get()
+	year = e2.get()
 	mylist = [10]
 	y = [10]
 	year = int (year)
@@ -62,7 +62,7 @@ def Graphps():
 	f.close()
 	f1 = open('data1.dat','w')
 	while(year <= 2013):
-		str2 = r3.get()
+		str2 = e3.get()
 		x=str2.lower() + '_cy' + str(year) + '_top.csv'
 		f=open(x)
 		str1 = rx.get()
@@ -186,11 +186,11 @@ def bridge():						#both helper
 	else:
 		top_1()	
 def bridge1():
-	str2=r3.get()
-	year = r2.get()
+	str2=e3.get()
+	year = e2.get()
 	x=str2.lower() + '_cy' + str(year) + '_top.csv'
 	f=open(x)
-	str1 = r1.get()
+	str1 = e1.get()
 	csv_f=csv.reader(f)
 	header=next(csv_f)
 	for row in csv_f:
@@ -198,15 +198,15 @@ def bridge1():
 			Graph()
 			return()
 	f.close()
-	str1 = r3.get()
+	str1 = e3.get()
 	NAMES = [30]
 	NAMES[0]=""
-	x=(str1.lower()) + '_cy' + (r2.get()) + '_top.csv'
+	x=(str1.lower()) + '_cy' + (e2.get()) + '_top.csv'
 	print x 
 	f=open(x)
 	csv_f=csv.reader(f)
 	root = Tk()
-	x=r1.get()
+	x=e1.get()
 	for row in csv_f:
 	 	y=row[2]
 	 	y=y.replace("=","")
@@ -214,11 +214,11 @@ def bridge1():
 	 		print "Shashank"
 		else:
 			s = str(row[0])
-			s1 = str(r1.get())
+			s1 = str(e1.get())
 			if (s.startswith(s1.upper())==True):	
 				s = str(row[0])	
 				NAMES.append(s)
-	Label(root,text='Enter Name').grid(row=0)	
+	Label(root,text='Select Name').grid(row=0)	
 	global rx	
 	rx = StringVar(root)
 	rx.set(NAMES[1]) # default value
@@ -226,7 +226,7 @@ def bridge1():
 	Button(root,height=2,width=20,text='Exit',command=root.destroy).grid(row=3,column=0,sticky=W,pady=4)
 	Button(root,height=2,width=20,text='Plot',command=Graphps).grid(row=3,column=1,sticky=W,pady=4)		
 	w.grid(row=0,column=1)
-	root.wm_title("Top")				
+	root.wm_title("Bridge")				
 	root.mainloop()		
 def about():						#about function
 	root = Tk()
