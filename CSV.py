@@ -45,6 +45,46 @@ def Graph():							#Graph Plotter
 	plt.ylabel('Name Frequency')
 	plt.xlabel('Year')
 	plt.show()
+def Graphps():
+	f = open('data.dat', 'w')
+	i = 0
+	year = r2.get()
+	mylist = [10]
+	y = [10]
+	year = int (year)
+	mylist[0] = year
+	r = 2014 - year
+	for i in range(0,int(r)):
+		mylist= int(year + i)
+		s = str(mylist)
+		f.write(s)
+		f.write('\n')
+	f.close()
+	f1 = open('data1.dat','w')
+	while(year <= 2013):
+		str2 = r3.get()
+		x=str2.lower() + '_cy' + str(year) + '_top.csv'
+		f=open(x)
+		str1 = rx.get()
+		csv_f=csv.reader(f)
+		header=next(csv_f)
+		for row in csv_f:
+			if(row[0] == str1.upper()):
+				y= row[1]	
+				break
+		s = str(y)
+		f1.write(s)
+		f1.write('\n')	
+		year = year +1	
+	f1.close()
+	x=np.loadtxt("data.dat",unpack=True)
+	y=np.loadtxt("data1.dat",unpack=True)
+	plt.plot(x, y, linewidth=2.0)
+	plt.title('Popularity of Name')
+	plt.ylabel('Name Frequency')
+	plt.xlabel('Year')
+	plt.show()
+	
 def graph_1():							#Graph Input
 	entr=Tk()
 	GENDER=["Male","Female"]
@@ -66,7 +106,7 @@ def graph_1():							#Graph Input
 	w.grid(row=1,column=1)
 	w1.grid(row=2,column=1)
 	Button(entr,height=2,width=20,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
-	Button(entr,height=2,width=20,text='Show',command=Graph).grid(row=3,column=1,sticky=W,pady=4)
+	Button(entr,height=2,width=20,text='Show',command=bridge1).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
 def Both():							#both case
 	root = Tk()
@@ -144,7 +184,50 @@ def bridge():						#both helper
 	if(str1 == str2):	
 		Both()
 	else:
-		top_1()		
+		top_1()	
+def bridge1():
+	str2=r3.get()
+	year = r2.get()
+	x=str2.lower() + '_cy' + str(year) + '_top.csv'
+	f=open(x)
+	str1 = r1.get()
+	csv_f=csv.reader(f)
+	header=next(csv_f)
+	for row in csv_f:
+		if(row[0] == str1.upper()):
+			Graph()
+			return()
+	f.close()
+	str1 = r3.get()
+	NAMES = [30]
+	NAMES[0]=""
+	x=(str1.lower()) + '_cy' + (r2.get()) + '_top.csv'
+	print x 
+	f=open(x)
+	csv_f=csv.reader(f)
+	root = Tk()
+	x=r1.get()
+	for row in csv_f:
+	 	y=row[2]
+	 	y=y.replace("=","")
+	 	if(y == "Position"):
+	 		print "Shashank"
+		else:
+			s = str(row[0])
+			s1 = str(r1.get())
+			if (s.startswith(s1.upper())==True):	
+				s = str(row[0])	
+				NAMES.append(s)
+	Label(root,text='Enter Name').grid(row=0)	
+	global rx	
+	rx = StringVar(root)
+	rx.set(NAMES[1]) # default value
+	w = apply(OptionMenu, (root, rx) + tuple(NAMES))	
+	Button(root,height=2,width=20,text='Exit',command=root.destroy).grid(row=3,column=0,sticky=W,pady=4)
+	Button(root,height=2,width=20,text='Plot',command=Graphps).grid(row=3,column=1,sticky=W,pady=4)		
+	w.grid(row=0,column=1)
+	root.wm_title("Top")				
+	root.mainloop()		
 def about():						#about function
 	root = Tk()
 	root.wm_title("About")
