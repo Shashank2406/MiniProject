@@ -47,19 +47,24 @@ def Graph():							#Graph Plotter
 	plt.show()
 def graph_1():							#Graph Input
 	entr=Tk()
+	GENDER=["Male","Female"]
 	Label(entr,text='Enter Name').grid(row=0)
-	Label(entr,text='Enter Year').grid(row=1)
-	Label(entr,text='Male/Female').grid(row=2)
+	Label(entr,text='Select Year').grid(row=1)
+	Label(entr,text='Select Gender').grid(row=2)
 	entr.wm_title("Graph")
 	global e1
 	e1=Entry(entr)
 	global e2
-	e2=Entry(entr)
+	e2=StringVar(entr)
+	e2.set(OPTIONS[0]) # default value
+	w = apply(OptionMenu, (entr, e2) + tuple(OPTIONS))
 	global e3
-	e3=Entry(entr)
+	e3=StringVar(entr)
+	e3.set(GENDER[0]) # default value
+	w1 = apply(OptionMenu, (entr, e3) + tuple(GENDER))
 	e1.grid(row=0,column=1)
-	e2.grid(row=1,column=1)
-	e3.grid(row=2,column=1)
+	w.grid(row=1,column=1)
+	w1.grid(row=2,column=1)
 	Button(entr,height=2,width=20,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
 	Button(entr,height=2,width=20,text='Show',command=Graph).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
@@ -103,7 +108,7 @@ def Both():							#both case
 	s = '\n--MALE--\n'	
 	f1.write(s)
 	str1 = 'male'
-	global str2
+	#global str2
 	str2 = e2.get()
 	x=(str1) + '_cy' + (str2) + '_top.csv'
 	print x 
@@ -153,6 +158,7 @@ def about():						#about function
 	root.mainloop()	
 def top():						#top function
 	entr=Tk()
+	GENDER=["Male","Female","Both"]
 	entr.wm_title("Top")
 	Label(entr,text='Enter Top').grid(row=0)
 	Label(entr,text='Enter Year').grid(row=1)
@@ -160,12 +166,16 @@ def top():						#top function
 	global e1
 	e1=Entry(entr)
 	global e2
-	e2=Entry(entr)
+	e2=StringVar(entr)
+	e2.set(OPTIONS[0]) # default value
+	w = apply(OptionMenu, (entr, e2) + tuple(OPTIONS))
 	global e3
-	e3=Entry(entr)
+	e3=StringVar(entr)
+	e3.set(GENDER[0]) # default value
+	w1 = apply(OptionMenu, (entr, e3) + tuple(GENDER))
 	e1.grid(row=0,column=1)
-	e2.grid(row=1,column=1)
-	e3.grid(row=2,column=1)
+	w.grid(row=1,column=1)
+	w1.grid(row=2,column=1)
 	Button(entr,height=2,width=20,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
 	Button(entr,height=2,width=20,text='Show',command=bridge).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()
@@ -247,11 +257,17 @@ def top_1():						#top value input
 	Button(entr,height=2,width=20,text='Exit',command=entr.destroy).grid(row=3,column=0,sticky=W,pady=4)
 	Button(entr,height=2,width=20,text='Show',command=ps).grid(row=3,column=1,sticky=W,pady=4)
 	entr.mainloop()	'''
-def func():						#main window
+def mini():						#main window
 	root = Tk()
-	frame= Frame(root,width=240, height=60)
-	root.wm_title("MiniProject")
-	thelable = Label(root,text = "MiniProject BETA Phase 3")  #creates label window
+	global OPTIONS
+	OPTIONS=[70]
+	OPTIONS[0] = '1945'
+	global OPTIONS
+	for i in range(1946,2014):
+		OPTIONS.append(i)
+	frame= Frame(root,width=240, height=30)
+	root.wm_title("Mini Project")
+	thelable = Label(root,text = "Mini Project Final Phase 1")  #creates label window
 	button_1 = Button(root,text="Top Names", command=top)
 	button_2 = Button(root,text="Graph", command=graph_1)
 	button_3 = Button(root,text="About", command=about)
@@ -268,4 +284,5 @@ def func():						#main window
 	frame.pack()
 	root.mainloop()
 
-func()
+if __name__ == "__main__":
+	mini()
