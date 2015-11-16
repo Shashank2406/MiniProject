@@ -111,7 +111,7 @@ def graph_1():							#Graph Input
 def Both():							#both case
 	root = Tk()
 	root.wm_title("Top")
-	T = Text(root, width=40, height=60)
+	T = Text(root, width=40, height=40)
 	S = Scrollbar(root)
 	S.pack(side=RIGHT, fill=Y)
 	T.pack(side=LEFT, fill=Y)
@@ -269,7 +269,7 @@ def top_1():						#top value input
 	f=open(x)
 	csv_f=csv.reader(f)
 	root = Tk()
-	T = Text(root, width=40, height=60)
+	T = Text(root, width=40, height=40)
 	S = Scrollbar(root)
 	S.pack(side=RIGHT, fill=Y)
 	T.pack(side=LEFT, fill=Y)
