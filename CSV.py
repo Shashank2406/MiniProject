@@ -40,7 +40,9 @@ def Graph():							#Graph Plotter
 	data1 = np.loadtxt("data1.txt")
 	x=np.loadtxt("data.txt",unpack=True)
 	y=np.loadtxt("data1.txt",unpack=True)
-	plt.plot(x, y, linewidth=2.0)
+	width = 0.45       # the width of the bars
+	fig, ax = plt.subplots()
+	rects1 = ax.bar(x,y, width, color='r')
 	plt.title('Popularity of Name')
 	plt.ylabel('Name Frequency')
 	plt.xlabel('Year')
@@ -79,7 +81,9 @@ def Graphps():
 	f1.close()
 	x=np.loadtxt("data.dat",unpack=True)
 	y=np.loadtxt("data1.dat",unpack=True)
-	plt.plot(x, y, linewidth=2.0)
+	width = 0.45       # the width of the bars
+	fig, ax = plt.subplots()
+	rects1 = ax.bar(x,y, width, color='r')
 	plt.title('Popularity of Name')
 	plt.ylabel('Name Frequency')
 	plt.xlabel('Year')
