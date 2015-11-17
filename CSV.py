@@ -244,8 +244,8 @@ def top():						#top function
 	GENDER=["Male","Female","Both"]
 	entr.wm_title("Top")
 	Label(entr,text='Enter Top').grid(row=0)
-	Label(entr,text='Enter Year').grid(row=1)
-	Label(entr,text='Male/Female/Both').grid(row=2)
+	Label(entr,text='Select Year').grid(row=1)
+	Label(entr,text='Select Gender').grid(row=2)
 	global e1
 	e1=Entry(entr)
 	global e2
@@ -354,6 +354,8 @@ def mini():						#main window
 	button_2 = Button(root,text="Graph", command=graph_1)
 	button_3 = Button(root,text="About", command=about)
 	button_4 = Button(root,text="Exit", command=root.destroy)
+	bb = Label(root,text = "Build ID 2406")
+	bb.pack(side=BOTTOM)
 	thelable.pack()
 	button_1.config( height = 5, width = 40 )
 	button_2.config( height = 5, width = 40 )
